@@ -24,6 +24,18 @@ function App() {
           }
         />
 
+        {/* Protected Clients Route */}
+        <Route
+          path="/clients"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <ClientsPage />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
         {/* Redirect to dashboard by default */}
         <Route path="*" element={<Navigate to="/dashboard" />} />
       </Routes>
