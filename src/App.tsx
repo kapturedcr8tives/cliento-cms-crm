@@ -4,6 +4,8 @@ import { SignupPage } from './pages/SignupPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { ClientsPage } from './pages/ClientsPage';
 import { LeadsPage } from './pages/LeadsPage';
+import { ProjectsPage } from './pages/ProjectsPage';
+import { ProjectDetailPage } from './pages/ProjectDetailPage';
 import { Layout } from './components/layout/Layout';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 
@@ -45,6 +47,30 @@ function App() {
             <ProtectedRoute>
               <Layout>
                 <LeadsPage />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Protected Projects Route */}
+        <Route
+          path="/projects"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <ProjectsPage />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Protected Project Detail Route */}
+        <Route
+          path="/projects/:projectId"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <ProjectDetailPage />
               </Layout>
             </ProtectedRoute>
           }
