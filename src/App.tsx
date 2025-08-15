@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { LoginPage } from './pages/LoginPage';
 import { SignupPage } from './pages/SignupPage';
 import { DashboardPage } from './pages/DashboardPage';
+import { ClientsPage } from './pages/ClientsPage';
+import { LeadsPage } from './pages/LeadsPage';
 import { Layout } from './components/layout/Layout';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 
@@ -31,6 +33,18 @@ function App() {
             <ProtectedRoute>
               <Layout>
                 <ClientsPage />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Protected Leads Route */}
+        <Route
+          path="/leads"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <LeadsPage />
               </Layout>
             </ProtectedRoute>
           }
