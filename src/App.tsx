@@ -6,6 +6,9 @@ import { ClientsPage } from './pages/ClientsPage';
 import { LeadsPage } from './pages/LeadsPage';
 import { ProjectsPage } from './pages/ProjectsPage';
 import { ProjectDetailPage } from './pages/ProjectDetailPage';
+import { ContractsPage } from './pages/ContractsPage';
+import { ContractEditorPage } from './pages/ContractEditorPage';
+import { ContractSigningPage } from './pages/ContractSigningPage';
 import { Layout } from './components/layout/Layout';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 
@@ -15,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/sign/:contractId" element={<ContractSigningPage />} />
 
         {/* Protected Dashboard Route */}
         <Route
@@ -71,6 +75,30 @@ function App() {
             <ProtectedRoute>
               <Layout>
                 <ProjectDetailPage />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Protected Contracts Route */}
+        <Route
+          path="/contracts"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <ContractsPage />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Protected Contract Editor Route */}
+        <Route
+          path="/contracts/:contractId"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <ContractEditorPage />
               </Layout>
             </ProtectedRoute>
           }
