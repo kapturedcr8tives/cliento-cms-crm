@@ -9,6 +9,8 @@ import { ProjectDetailPage } from './pages/ProjectDetailPage';
 import { ContractsPage } from './pages/ContractsPage';
 import { ContractEditorPage } from './pages/ContractEditorPage';
 import { ContractSigningPage } from './pages/ContractSigningPage';
+import { TeamPage } from './pages/TeamPage';
+import { AcceptInvitePage } from './pages/AcceptInvitePage';
 import { Layout } from './components/layout/Layout';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 
@@ -19,6 +21,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/sign/:contractId" element={<ContractSigningPage />} />
+        <Route path="/accept-invite" element={<AcceptInvitePage />} />
 
         {/* Protected Dashboard Route */}
         <Route
@@ -99,6 +102,18 @@ function App() {
             <ProtectedRoute>
               <Layout>
                 <ContractEditorPage />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Protected Team Route */}
+        <Route
+          path="/team"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <TeamPage />
               </Layout>
             </ProtectedRoute>
           }
